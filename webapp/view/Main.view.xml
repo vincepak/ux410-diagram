@@ -1,0 +1,29 @@
+<mvc:View controllerName="student00.sap.training.diagram.controller.Main" xmlns:mvc="sap.ui.core.mvc" xmlns:f="sap.f" displayBlock="true"
+	xmlns="sap.m" xmlns:suite="sap.suite.ui.commons" xmlns:viz="sap.viz.ui5.controls">
+	<App id="app">
+		<pages>
+			<f:DynamicPage id="dynamicPageId" headerExpanded="true" toggleHeaderOnTitleClick="true">
+				<f:title>
+					<f:DynamicPageTitle >
+						<f:heading>
+							<Title text="{i18n>pageTitle}"/>
+						</f:heading>
+					</f:DynamicPageTitle>
+				</f:title>
+				<f:content>
+					<suite:ChartContainer id="idChartContainer" autoAdjustHeight="true" contentChange="onContentChange" showFullScreen="true" showLegend="true"
+						showPersonalization="true" title="{i18n>diagramTitle}">
+						<suite:content>
+							<suite:ChartContainerContent icon="sap-icon://line-chart" title="{i18n>lineChartTitle}">
+								<suite:content>
+									<viz:Popover id="idLineChartPopover"></viz:Popover>
+									<viz:VizFrame id="idLineChartVizFrame" height="9.1rem" width="100%" uiConfig="{applicationSet:config}"></viz:VizFrame>
+								</suite:content>
+							</suite:ChartContainerContent>
+						</suite:content>
+					</suite:ChartContainer>
+				</f:content>
+			</f:DynamicPage>
+		</pages>
+	</App>
+</mvc:View>
