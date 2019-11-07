@@ -20,6 +20,11 @@
 									<viz:VizFrame id="idLineChartVizFrame" height="9.1rem" width="100%" uiConfig="{applicationSet:config}"></viz:VizFrame>
 								</suite:content>
 							</suite:ChartContainerContent>
+							<suite:ChartContainerContent icon="sap-icon://vertical-bar-chart" title="{i18n>titleBarChart}">
+								<suite:content>
+									<viz:VizFrame id="idBarChartVizFrame" height="9.1rem" width="100%" uiConfig="{applicationSet:'fiori'}" />
+								</suite:content>
+							</suite:ChartContainerContent>
 						</suite:content>
 					</suite:ChartContainer>
 				</f:content>

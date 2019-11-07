@@ -23,6 +23,7 @@ sap.ui.define([
 			this._dataSet = this._createDataSet();
 			
 			this._createLineDiagram();
+			this._createColumnChart();
 		},
 		
 		_createFeedMap:function(){
@@ -111,8 +112,35 @@ sap.ui.define([
 					visible: false
 				}
 			});
-			oVizFrame.setVizType('line');
+			oVizFrame.setVizType("line");
 			oPop.connect(oVizFrame.getVizUid());
 		},
+		
+		_createColumnChart:function(){
+			var oVizFrame = this.getView().byId("idBarChartVizFrame");
+			oVizFrame.setDataset(this._createDataSet());
+			oVizFrame.setVizProperties({
+				plotArea: {
+					dataLabel: {
+						visible: true
+					}
+				},
+				title: {
+					visible: false
+				}
+			});
+			oVizFrame.setVizType("column");
+		},
+		
+		/**
+		 * Event handler for ContentChange
+		 */
+		onContentChange:function(oEvent){
+						var sSelectedVizFrame = oEvent.getParameter("selectedItemId");
+			if (sSelectedVizFrame.indexOf("Table") === -1) {
+				this.sCurrentVizFrame = sSelectedVizFrame.split("--")[1];
+				this._handleSelection(this.sCurrentSelectedDimension);
+			}
+		}
 	});
 });
