@@ -4,12 +4,12 @@ sap.ui.define([
 	"sap/viz/ui5/data/DimensionDefinition",
 	"sap/viz/ui5/data/MeasureDefinition",
 	"sap/viz/ui5/data/FlattenedDataset",
-		// "sap/m/Column",
+	"sap/m/Column",
 	"sap/m/Label",
 	"sap/ui/core/Item",
 	"sap/m/ColumnListItem",
 	"sap/m/Toolbar"
-], function (Controller, FeedItem, DimensionDefinition,MeasureDefinition,FlattenedDataset,/* Column, */ Label, Item, ColumnListItem, Toolbar) {
+], function (Controller, FeedItem, DimensionDefinition,MeasureDefinition,FlattenedDataset,Column, Label, Item, ColumnListItem, Toolbar) {
 	"use strict";
 
 	return Controller.extend("student00.sap.training.diagram.controller.Main", {
@@ -24,6 +24,7 @@ sap.ui.define([
 			
 			this._createLineDiagram();
 			this._createColumnChart();
+			this._createTable();
 		},
 		
 		_createFeedMap:function(){
@@ -136,11 +137,57 @@ sap.ui.define([
 		 * Event handler for ContentChange
 		 */
 		onContentChange:function(oEvent){
-						var sSelectedVizFrame = oEvent.getParameter("selectedItemId");
+			var sSelectedVizFrame = oEvent.getParameter("selectedItemId");
 			if (sSelectedVizFrame.indexOf("Table") === -1) {
 				this.sCurrentVizFrame = sSelectedVizFrame.split("--")[1];
 				this._handleSelection(this.sCurrentSelectedDimension);
 			}
+		},
+		
+		_createTable:function(){
+			var oTable = this.getView().byId("idTable");
+			
+			oTable.addColumn(new Column({
+				header: new Label({
+					text: "Region",
+					textAlign: "Right"
+				})
+			}));
+			oTable.addColumn(new Column({
+				header: new Label({
+					text: "Sub Region",
+					textAlign: "Left"
+				})
+			}));
+			oTable.addColumn(new Column({
+				header: new Label({
+					text: "Product name"
+				})
+			}));
+			oTable.addColumn(new Column({
+				header: new Label({
+					text: "Sales Amount"
+				})
+			}));
+			
+			var oTableTemplate = new ColumnListItem({
+				type: sap.m.ListType.Active,
+				cells: [new Label({
+					text: "{SalesModel>REGION_NAME}"
+				}), new Label({
+					text: "{SalesModel>SUB_REGION_NAME}",
+					textAlign: "Left"
+				}), new Label({
+					text: "{SalesModel>PRODUCT_NAME}",
+					textAlign: "Right"
+				}), new Label({
+					text: "{SalesModel>SALES_AMOUNT}",
+					textAlign: "Center"
+
+				})]
+			});
+			
+			oTable.bindItems("SalesModel>/SalesFigures", oTableTemplate, null, null);
 		}
 	});
 });
