@@ -13,6 +13,9 @@
 				<f:content>
 					<suite:ChartContainer id="idChartContainer" autoAdjustHeight="true" contentChange="onContentChange" showFullScreen="true" showLegend="true"
 						showPersonalization="true" title="{i18n>diagramTitle}">
+						<suite:dimensionSelectors>
+							<Select id="idDimSelector" change="onChange"></Select>
+						</suite:dimensionSelectors>
 						<suite:content>
 							<suite:ChartContainerContent icon="sap-icon://line-chart" title="{i18n>lineChartTitle}">
 								<suite:content>

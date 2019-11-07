@@ -25,32 +25,33 @@ sap.ui.define([
 			this._createLineDiagram();
 			this._createColumnChart();
 			this._createTable();
+			this._createSelector();
 		},
 		
 		_createFeedMap:function(){
 			this.feedMap={};
 			this.feedMap.saleAmount = new FeedItem({
-				"uid":"valueAxis",
-				"type":"Measure",
-				"values":["SalesAmount"]
+				"uid": "valueAxis",
+				"type": "Measure",
+				"values": ["SalesAmount"]
 			});
-			
+
 			this.feedMap.products = new FeedItem({
-				"uid":"categoryAxis",
-				"type":"Dimension",
-				"values":["Products"]
+				"uid": "categoryAxis",
+				"type": "Dimension",
+				"values": ["Products"]
 			});
-			
+
 			this.feedMap.subregion = new FeedItem({
-				"uid":"categoryAxis",
-				"type":"Dimension",
-				"values":["Sub_Region_Name"]
+				"uid": "categoryAxis",
+				"type": "Dimension",
+				"values": ["Sub_Region_Name"]
 			});
-			
+
 			this.feedMap.productsSubregion = new FeedItem({
-				"uid":"categoryAxis",
-				"type":"Dimension",
-				"values":["Products", "Sub_Region_name"]
+				"uid": "categoryAxis",
+				"type": "Dimension",
+				"values": ["Products", "Sub_Region_Name"]
 			});
 		},
 		
@@ -89,11 +90,29 @@ sap.ui.define([
 			oVizFrame.removeAllFeeds();
 			
 			switch(selectedItem){
-				case "0":{
+				case "0":{ //per Product
 					oDataSet.addDimension(this.dataSetMap.productDim);
 					oDataSet.addMeasure(this.dataSetMap.salesAmountMeasure);
 					oVizFrame.addFeed(this.feedMap.products);
 					oVizFrame.addFeed(this.feedMap.saleAmount);
+					
+					break;
+				}
+				case "1":{ //per Region
+					oDataSet.addDimension(this.dataSetMap.subRegionDim);
+					oDataSet.addMeasure(this.dataSetMap.salesAmountMeasure);
+					oVizFrame.addFeed(this.feedMap.subregion);
+					oVizFrame.addFeed(this.feedMap.saleAmount);
+					
+					break;
+				}
+				case "2": {
+					oVizFrame.getDataset().addDimension(this.dataSetMap.productDim);
+					oVizFrame.getDataset().addDimension(this.dataSetMap.subRegionDim);
+					oVizFrame.getDataset().addMeasure(this.dataSetMap.salesAmountMeasure);
+					oVizFrame.addFeed(this.feedMap.productsSubregion);
+					oVizFrame.addFeed(this.feedMap.saleAmount);
+					break;
 				}
 			}
 		},
@@ -188,6 +207,31 @@ sap.ui.define([
 			});
 			
 			oTable.bindItems("SalesModel>/SalesFigures", oTableTemplate, null, null);
+		},
+		
+		_createSelector:function(){
+			var oViewSelector = this.getView().byId("idDimSelector");
+			var oItemProduct = new Item({
+				key: "0",
+				text: "{i18n>perProduct}"
+			});
+			var oItemRegion = new Item({
+				key: "1",
+				text: "{i18n>perRegion}"
+			});
+			var oItemProductRegion = new Item({
+				key: "2",
+				text: "per Product and Region"
+			});
+			
+			oViewSelector.addItem(oItemProduct);
+			oViewSelector.addItem(oItemRegion);
+			oViewSelector.addItem(oItemProductRegion);
+		},
+		
+		onChange:function(oEvent){
+			this.sCurrentSelectedDimension = oEvent.getParameter("selectedItem").getKey();
+			this._handleSelection(this.sCurrentSelectedDimension);
 		}
 	});
 });

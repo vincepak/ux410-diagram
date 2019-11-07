@@ -1,0 +1,101 @@
+[{
+	"KEY": "KEY 1",
+	"SUB_REGION_NAME": "SUB_REGION_NAME 1",
+	"REGION_NAME": "REGION_NAME 1",
+	"PRODUCT_NAME": "PRODUCT_NAME 1",
+	"SALES_AMOUNT": 0.00985394674611232,
+	"__metadata": {
+		"uri": "SalesFigures('KEY%201')",
+		"type": "SalesFiguresService.SalesFiguresType"
+	}
+}, {
+	"KEY": "KEY 2",
+	"SUB_REGION_NAME": "SUB_REGION_NAME 2",
+	"REGION_NAME": "REGION_NAME 2",
+	"PRODUCT_NAME": "PRODUCT_NAME 2",
+	"SALES_AMOUNT": 0.4163109025208215,
+	"__metadata": {
+		"uri": "SalesFigures('KEY%202')",
+		"type": "SalesFiguresService.SalesFiguresType"
+	}
+}, {
+	"KEY": "KEY 3",
+	"SUB_REGION_NAME": "SUB_REGION_NAME 3",
+	"REGION_NAME": "REGION_NAME 3",
+	"PRODUCT_NAME": "PRODUCT_NAME 3",
+	"SALES_AMOUNT": 6.671921353592035,
+	"__metadata": {
+		"uri": "SalesFigures('KEY%203')",
+		"type": "SalesFiguresService.SalesFiguresType"
+	}
+}, {
+	"KEY": "KEY 4",
+	"SUB_REGION_NAME": "SUB_REGION_NAME 4",
+	"REGION_NAME": "REGION_NAME 4",
+	"PRODUCT_NAME": "PRODUCT_NAME 4",
+	"SALES_AMOUNT": 2.6136080861097093,
+	"__metadata": {
+		"uri": "SalesFigures('KEY%204')",
+		"type": "SalesFiguresService.SalesFiguresType"
+	}
+}, {
+	"KEY": "KEY 5",
+	"SUB_REGION_NAME": "SUB_REGION_NAME 5",
+	"REGION_NAME": "REGION_NAME 5",
+	"PRODUCT_NAME": "PRODUCT_NAME 5",
+	"SALES_AMOUNT": 7.960439208624051,
+	"__metadata": {
+		"uri": "SalesFigures('KEY%205')",
+		"type": "SalesFiguresService.SalesFiguresType"
+	}
+}, {
+	"KEY": "KEY 6",
+	"SUB_REGION_NAME": "SUB_REGION_NAME 6",
+	"REGION_NAME": "REGION_NAME 6",
+	"PRODUCT_NAME": "PRODUCT_NAME 6",
+	"SALES_AMOUNT": 2.5848653284436645,
+	"__metadata": {
+		"uri": "SalesFigures('KEY%206')",
+		"type": "SalesFiguresService.SalesFiguresType"
+	}
+}, {
+	"KEY": "KEY 7",
+	"SUB_REGION_NAME": "SUB_REGION_NAME 7",
+	"REGION_NAME": "REGION_NAME 7",
+	"PRODUCT_NAME": "PRODUCT_NAME 7",
+	"SALES_AMOUNT": 5.101492694600491,
+	"__metadata": {
+		"uri": "SalesFigures('KEY%207')",
+		"type": "SalesFiguresService.SalesFiguresType"
+	}
+}, {
+	"KEY": "KEY 8",
+	"SUB_REGION_NAME": "SUB_REGION_NAME 8",
+	"REGION_NAME": "REGION_NAME 8",
+	"PRODUCT_NAME": "PRODUCT_NAME 8",
+	"SALES_AMOUNT": 7.6386825539411785,
+	"__metadata": {
+		"uri": "SalesFigures('KEY%208')",
+		"type": "SalesFiguresService.SalesFiguresType"
+	}
+}, {
+	"KEY": "KEY 9",
+	"SUB_REGION_NAME": "SUB_REGION_NAME 9",
+	"REGION_NAME": "REGION_NAME 9",
+	"PRODUCT_NAME": "PRODUCT_NAME 9",
+	"SALES_AMOUNT": 0.10085823356892157,
+	"__metadata": {
+		"uri": "SalesFigures('KEY%209')",
+		"type": "SalesFiguresService.SalesFiguresType"
+	}
+}, {
+	"KEY": "KEY 10",
+	"SUB_REGION_NAME": "SUB_REGION_NAME 10",
+	"REGION_NAME": "REGION_NAME 10",
+	"PRODUCT_NAME": "PRODUCT_NAME 10",
+	"SALES_AMOUNT": 8.688555156135568,
+	"__metadata": {
+		"uri": "SalesFigures('KEY%2010')",
+		"type": "SalesFiguresService.SalesFiguresType"
+	}
+}]
